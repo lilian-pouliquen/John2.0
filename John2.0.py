@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 #on importe les bibliothèques et modules dont nous allons avoir besoin
 from tkinter import *
 from tkinter.messagebox import *
@@ -5,6 +7,7 @@ from random import *
 from os import system
 from Ne_pas_ouvrir.Chapitres import *
 from Ne_pas_ouvrir.utile import *
+from sys import exit
 
 #on affiche un premier dialogue afin de demander le prénom de l'utilisateur
 #et de lui donner quelques conseils.
@@ -40,6 +43,7 @@ system("pause")
 ################################ Verification #################################
 ############################# des mots de passe ###############################
 
+
 def verif():
     """
     vérifie si le mot de passe entré dans la boîte de message est correct.
@@ -49,7 +53,8 @@ def verif():
     #pour voir où l'utilisateur va être redirigé
     if Motdepasse.get() == "exit":
         showinfo("Au revoir !", "Vous reviendrez hein ?")        
-        exit()
+        mdp.destroy()
+        exit(0)
     
     
     elif Motdepasse.get() == '789521':
@@ -107,7 +112,7 @@ def verif():
         #on ferme la fenêtre  
         mdp.destroy()  
         
-        Chapitre7()
+        Chapitre7(prenom)
     
     #si le mot de passe entré n'a aucune correspondance,
     #un message d'erreur s'affiche, indiquant à l'utilisateur qu'il s'est trompé
@@ -115,6 +120,7 @@ def verif():
         # le mot de passe est incorrect : on affiche une boîte de dialogue
         showerror('Bien essayé...', "Ce n'était pas ce mot de passe...\nOu alors vous avez fait une faute ?")
         Motdepasse.set('')
+
 
 ############################# Mot de passe ####################################
 ###############################################################################

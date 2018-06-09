@@ -5,6 +5,8 @@ from tkinter.messagebox import *
 from random import *
 from os import system
 from Ne_pas_ouvrir.utile import *
+from sys import exit
+
 
 def Chapitre1(prenom):
     """
@@ -34,8 +36,6 @@ Alors voilà, cadeau ! C'est le mot de passe du chapitre 2 !\n\n               l
     texte.close()
     
 
-    
-    
 def Chapitre2():
     """
     Lance le chapitre deux de l'histoire.
@@ -71,11 +71,7 @@ def Chapitre2():
     print("licornia town")
     print("_______________________________________________________________________________")
 
-    
-    
-    
-    
-    
+
 def Chapitre3(prenom):
     """
     lance le chapitre 3
@@ -93,7 +89,6 @@ def Chapitre3(prenom):
     
     #on crée une fenêtre graphique dans laquelle 
     #on affichera l'image de Lili (sans ses couleurs)
-    lili = Tk()
     canvas("Lili", "Licorne.gif", 1178, 775)
 
     print("Lili : Bonjour ! Je suis Lili, enchantée !")
@@ -106,12 +101,7 @@ def Chapitre3(prenom):
     print("\nVoici le mot de passe du chapitre 4 : colors")
     print("_______________________________________________________________________________")
 
-    
-    
-    
-    
-    
-    
+
 def Chapitre4(prenom):
     """
     lance le chapitre 4
@@ -128,7 +118,7 @@ def Chapitre4(prenom):
     
     system("pause")
     #on crée une variable comptant le nombre de clés obtenues par l'utilisateur
-    epreuve_Corruption()
+    nb_cle = epreuve_Corruption()
         
     #on vérifie que nb_cle soit bien égal à 3 afin de poursuivre l'histoire
     if nb_cle != 3:
@@ -137,7 +127,7 @@ def Chapitre4(prenom):
         
         #si l'utilisateur a échoué, la partie est terminée
         print("### La corruption vous a repoussé(e) et s'est étendue à tout l'univers de John 2.0... C'est la fin... ###")
-        exit()
+        exit(0)
     
     #sinon, l'histoire continue
     else:
@@ -149,17 +139,12 @@ def Chapitre4(prenom):
         
         system("pause")
         #on crée ensuite la fenêtre graphique qui affichera Lili en couleur
-        lili = Tk()
         canvas("Lili", "Licorne color.gif", 1178, 775)
         
         print("Lili : Vous avez réussi ! mes couleurs sont de retour !! merci beaucoup !")
         print("Oh, mais... Ce code que la corruption a laissé... C'est un mot de passe légendaire, il vous mènera au premier code !")
         print("_______________________________________________________________________________")
-        
-        
-        
-        
-        
+              
         
 def Chapitre5():
     """
@@ -173,7 +158,6 @@ def Chapitre5():
     
     system("pause")
     #on crée maintenant une autre fenêtre graphique affichant Lux
-    Lux = Tk()
     canvas("Lux", "Lux.gif", 890, 552)
     
     print("Lux : J'imagine que vous voulez obtenir le code, mmh ?")
@@ -185,28 +169,26 @@ def Chapitre5():
     system("pause")
     #maintenant on crée une fenêtre graphique 
     #affichant Lux avec le premier chiffre recherché
-    Lux_5 = Tk()    
     canvas("Lux", "Lux 5.gif", 890, 552)
     
     creation_Fichiers_Chap5()
     
-    #on crée une boucle infinie afin de redemender les chiffres jusqu'à ce que
-    #l'utilisateur entre la bonne réponse.
-    while 1 :
-        #on demande alors à l'utilisateur la bonne combinaison.
-        chiffres = input("Dites-moi les trois chiffres dans l'ordre lorsque vous les aurez trouvés : ")
+    chiffres = ""
     
-        if chiffres == "583":
-            print("Bravo, je vois que vous avez su trouver les chiffres !")
-            print("Fort bien, je peux donc vous ouvrir le passage vers le code légendaire...")
-            print("Dites moi lorsque vous serez prêt(e), je vous attendrai dans le chapitre 6, entrez donc les trois chiffres en mot de passe.")
-            print("_______________________________________________________________________________")
-            break
-        
-        else : 
-            print("N'essayez pas de m'arnaquer... Je sais que ce n'est pas les bons chiffres, ou le bon ordre.")
+    #on demande alors à l'utilisateur la bonne combinaison.
+    chiffres = input("Dites-moi les trois chiffres dans l'ordre lorsque vous les aurez trouvés : ")
+    
+    #Tant que l'utilisateur ne donne pas la bonne réponse,
+    #il réessaie
+    while chiffres != "583":
+        print("N'essayez pas de m'arnaquer... Je sais que ce n'est pas les bons chiffres, ou le bon ordre.")
 
-            
+    print("Bravo, je vois que vous avez su trouver les chiffres !")
+    print("Fort bien, je peux donc vous ouvrir le passage vers le code légendaire...")
+    print("Dites moi lorsque vous serez prêt(e), je vous attendrai dans le chapitre 6, entrez donc les trois chiffres en mot de passe.")
+    print("_______________________________________________________________________________")
+  
+      
 def Chapitre6():
     """
     lance le chapitre 6 de l'histoire
@@ -217,7 +199,6 @@ def Chapitre6():
     
     system("pause")
     # Création de la fenêtre de l'image de Jelly
-    Jelly = Tk()
     canvas('Jelly', "jelly GIF.gif", 527, 586)
     
     print("\n\nJelly : \nAh ! Vous voilà, Lux m'a parlé de vous !")
@@ -234,12 +215,7 @@ def Chapitre6():
     print("_______________________________________________________________________________")
     system("pause")
     
-    #on crée un fichier afin que l'utilisateur puisse copier l'inscription.
-    inscription = open("Inscription.txt", "w")
-    inscription.write("t'swkqsxo bfo tovvj k oxmyco yflvso vo myno no vk ayceo wwr ? lyx eoxok : kxeseowavs")
-    inscription.close()
-    
-    print("\n### Vous vous approchez de la porte et y lisez cette inscription : \n\nt'swkqsxo bfo tovvj k oxmyco yflvso vo myno no vk ayceo wwr ?\nlyx eoxok :\nkxeseowavs\n\n< 10 >\n\n(Vous pouvez copier cette phrase dans le dossier ''John 2.0'')")
+    print("\n### Vous vous approchez de la porte et y lisez cette inscription : \n\nt'swkqsxo aeo tovvi k oxmybo yelvso vo myno no vk zybdo wwr ?\nlyx, doxoj :\nkxdsdowzvs\n\n< 10 >\n\n")
     print("\nJelly :\nPrévenez moi lorsque vous aurez trouvé...")
     
     #on crée une variable qui permet de sortir de la boucle while
@@ -248,7 +224,7 @@ def Chapitre6():
     #tant que l'on entrera pas le bon mot de passe, la boucle tournera
     while sortir_boucle != 1:
         #on demande à l'utilisateur d'entrer le mot de passe de la traduction
-        trouve = input("(Entrez le mot de passe de la traduction ici)\n")
+        trouve = input("(Entrez le mot de passe de la traduction ici) : ")
     
         if trouve == "antitempli" :
             print("\n### Vous donnez le mot de passe à Jelly ###")
@@ -264,7 +240,6 @@ def Chapitre6():
         
         else :
             print("\n\nJelly :\nIl ne me semble pas que ce soit cela...")
-            sortir_boucle = 0
     
     system("pause")
     print("\nLili :\nOh vous êtes revenu(e) ! J'imagine donc que vous avez réussi, parfait !")
@@ -275,15 +250,7 @@ def Chapitre6():
     print("_______________________________________________________________________________")
 
     
-    
-    
-    
-    
-    
-    
-    
-    
-def Chapitre7():
+def Chapitre7(prenom):
     """
     lance le chapitre 7 de l'histoire
     """        

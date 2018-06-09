@@ -16,7 +16,7 @@ def codage(texte_a_coder, code):
     
     #on parcourt chaque caractère du texte, afin de le traduire.
     for caractere in texte_a_coder:
-        if ((caractere == ":") or (caractere =="(") or (caractere == ")") or (caractere == "'") or (caractere == " ") or (caractere == ",") or (caractere == ".") or (caractere == "!") or (caractere == "?") or (caractere == "-") or (caractere == "\n")):
+        if caractere not in alphabet :
             
             #si c'est une ponctuation, on ne le traduit pas.
             texte_code += caractere
@@ -26,7 +26,7 @@ def codage(texte_a_coder, code):
             if alphabet[numero] == caractere:
                 
                 #si oui, alors on écrit le caractère traduit en code dans le texte codé.
-                texte_code += alphabet[(numero+code)%25]
+                texte_code += alphabet[(numero+code)%26]
         
     
     #on ouvre le fichier dans lequel on va écrire le texte traduit.
@@ -54,8 +54,7 @@ def decodage(texte_a_decoder, code):
 
     #on parcourt chaque caractère du texte, afin de le traduire.
     for caractere in texte_a_decoder:
-        if ((caractere == ":") or (caractere =="(") or (caractere == ")") or (caractere == "'") or (caractere == " ") or (caractere == ",") or (caractere == ".") or (caractere == "!") or (caractere == "?") or (caractere == "-") or (caractere == "\n")):
-            
+        if caractere not in alphabet:
             #si c'est une ponctuation, on ne le traduit pas.
             texte_decode += caractere
         
@@ -64,13 +63,13 @@ def decodage(texte_a_decoder, code):
             if alphabet[numero] == caractere:
                 
                 #si oui alors on traduit le caractère avec code, de façon à retrouver la lettre d'origine.
-                texte_decode += alphabet[(numero-code)%25]
+                texte_decode += alphabet[(numero-code)%26]
      
     #on ouvre le fichier dans lequel on va écrire le texte décodé.
     nouveau_texte = open("Texte Décodé.txt", "w")
     nouveau_texte.write(texte_decode)
 
-    
+   
 def verif():
     """
     vérifie si le mot de passe entré dans la boîte de message est correct.
@@ -121,14 +120,3 @@ Bouton.pack(side = BOTTOM, padx = 5, pady = 5)
 
 
 mdp.mainloop() 
-   
-    
-    
-    
-    
-    
-    
-    
-    
-    
-

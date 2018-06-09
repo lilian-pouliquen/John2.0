@@ -2,6 +2,21 @@
 from tkinter import *
 from random import *
 
+
+def verif_Nombre(nombre):
+    ok = False
+    
+    while (not(ok)):
+        try:
+            int(nombre)
+        except TypeError:
+            input("\nCe n'est pas un nombre, veuillez saisir à nouveau : ")
+        
+        ok = True
+        
+    return nombre
+
+
 def canvas(titre, fichier, largeur, hauteur):
     
     nom = Tk()
@@ -18,9 +33,7 @@ def canvas(titre, fichier, largeur, hauteur):
         
     nom.mainloop()
 
-    
-    
-    
+
 def epreuve_Corruption():
     nb_cle = 0
 
@@ -35,8 +48,7 @@ def epreuve_Corruption():
         for I in range(1, 8):
 
             estimation = input("Quelle est votre estimation ? ")#on demande à l'utiliateur son estimation
-            estimation = int(estimation)#que l'on traduit en entier
-    
+            estimation = verif_Nombre(estimation)
             #puis on teste la valeur de l'estimation, afin de voir
             #si elle correspond au nombre à trouver
             if estimation == nombre:
@@ -80,7 +92,7 @@ def creation_Fichiers_Chap5():
     chiffre_2.close()
     
     #on crée ensuite un fichier image (très petite) où se trouve le troisième chiffre.
-    zoom = open("Zoom.pbm", "w")
+    zoom = open("Zoom.bmp", "w")
     
     #on écrit dans ce fichier afin de créer une image.
     zoom.write("P1\n28 15\n")
