@@ -16,7 +16,7 @@ Sorry, comments are in French too, I will translate it when I will have the time
 - Please if you want to help me, I am trying to make a "fight" (as in Pokemon games you know?), where the user can choose the actions, and fight the "Corruption".
 ==> file location : Ne_pas_ouvrir/deplacer.py
 
-- There are "continue checks" to do on Ne_pas_ouvrir/deplacer, because currently you only have to close the windows to continue through the chapter. It is kind of cheating so. 
+- There are "continue checks" to do on "Ne_pas_ouvrir/deplacer.py", because currently you only have to close the windows to continue through the chapter. It is kind of cheating so. 
 
 - There are also data entry checks, other bug fixes to make, and maybe other stuff I did not see.
 
