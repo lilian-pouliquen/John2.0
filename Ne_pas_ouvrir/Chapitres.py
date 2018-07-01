@@ -218,9 +218,7 @@ def Chapitre6():
     
     print("\n### Vous vous approchez de la porte et y lisez cette inscription : \n\nt'swkqsxo aeo tovvi k oxmybo yelvso vo myno no vk zybdo wwr ?\nlyx, doxoj :\nkxdsdowzvs\n\n< 10 >\n\n")
     print("\nJelly :\nPrévenez moi lorsque vous aurez trouvé...")
-    
-    #on crée une variable qui permet de sortir de la boucle while
-    sortir_boucle = 0
+
     creation_Fichier_A_Decoder()
     
     system("python Ne_pas_ouvrir\\Decodage.py")

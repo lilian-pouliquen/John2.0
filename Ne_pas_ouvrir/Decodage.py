@@ -73,13 +73,13 @@ def verif():
             else :
                 print("\n\nJelly :\nIl ne me semble pas que ce soit cela...")
     
-    system("pause")
-    print("\nLili :\nOh vous êtes revenu(e) ! J'imagine donc que vous avez réussi, parfait !")
-    print("Pendant votre absence je me suis renseignée quant aux autres codes contre la corruption.")
-    print("Le prochain se touve au lac céleste !")
-    system("pause")
-    print("Le mot de passe du chapitre 7 est donc : lac celeste")
-    print("_______________________________________________________________________________")
+        system("pause")
+        print("\nLili :\nOh vous êtes revenu(e) ! J'imagine donc que vous avez réussi, parfait !")
+        print("Pendant votre absence je me suis renseignée quant aux autres codes contre la corruption.")
+        print("Le prochain se touve au lac céleste !")
+        system("pause")
+        print("Le mot de passe du chapitre 7 est donc : lac celeste")
+        print("_______________________________________________________________________________")
         
     else :
         Motdepasse.set("")
