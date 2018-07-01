@@ -170,7 +170,7 @@ def Chapitre5():
     system("pause")
     #maintenant on crée une fenêtre graphique 
     #affichant Lux avec le premier chiffre recherché
-    canvas("Lux", "Lux 5.gif", 890, 552)
+    canvas("Lux", "Lux5.gif", 890, 552)
     
     creation_Fichiers_Chap5()
     
