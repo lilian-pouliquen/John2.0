@@ -8,7 +8,6 @@ from os import system
 from Ne_pas_ouvrir.Chapitres import *
 from Ne_pas_ouvrir.utile import *
 from sys import exit
-from subprocess import *
 
 #on affiche un premier dialogue afin de demander le prénom de l'utilisateur
 #et de lui donner quelques conseils.

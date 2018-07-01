@@ -7,7 +7,6 @@ from random import choice
 from os import system
 from Ne_pas_ouvrir.utile import *
 from sys import exit
-from subprocess import call
 
 def Chapitre1(prenom):
     """
@@ -237,13 +236,4 @@ def Chapitre7(prenom):
     
     system("pause")
     
-    info = Tk()
-    info.title("Insructions")
-    
-    message = Label(info, text = "Rendez-vous dans le dossier ''Module''.\nIl y a un programme nommé Lac Céleste qui vous attend.\nIl vous faudra passer par ce dernier, pour continuer...")
-    message.pack(padx=10, pady=10)
-    
-    bouton_ok = Button(info, text = "OK", command = info.destroy)
-    bouton_ok.pack(pady=5, side = BOTTOM)
-    
-    info.mainloop()
+    system("python Ne_pas_ouvrir\\deplacer.py")

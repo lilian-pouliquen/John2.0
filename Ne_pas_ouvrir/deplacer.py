@@ -70,7 +70,7 @@ def Clavier(event):
             Label1.pack(side = BOTTOM)
             
             #chargement de l'image nécéssaire
-            photo = PhotoImage(file="Ne pas ouvrir (spoil)\Gemme Rouge.gif")
+            photo = PhotoImage(file="img_lac_celeste\Gemme Rouge.gif")
             #création d'une zone graphique
             Largeur = 125
             Hauteur = 178
@@ -94,7 +94,7 @@ def Clavier(event):
             # Positionnement du widget avec la méthode pack()
             label.pack(side = BOTTOM)
             #chargement de l'image nécéssaire
-            photo = PhotoImage(file="Ne pas ouvrir (spoil)\Gemme Bleue.gif")
+            photo = PhotoImage(file="img_lac_celeste\Gemme Bleue.gif")
                 
             #création d'une zone graphique
             Largeur = 125
@@ -115,7 +115,7 @@ fond = Tk()
 fond.title("Lac Céleste")
 
 #chargement de l'image nécéssaire
-photo = PhotoImage(file="Ne pas ouvrir (spoil)\Fond Lac.gif")
+photo = PhotoImage(file="img_lac_celeste\Fond Lac.gif")
     
 #création d'une zone graphique
 Largeur = 480
@@ -153,7 +153,7 @@ fond = Tk()
 fond.title("Lac Céleste")
 
 #chargement de l'image nécéssaire
-photo = PhotoImage(file="Ne pas ouvrir (spoil)\Fond Lac.gif")
+photo = PhotoImage(file="img_lac_celeste\Fond Lac.gif")
    
 #création d'une zone graphique
 Largeur = 480
@@ -178,7 +178,7 @@ fond = Tk()
 fond.title("Lac Céleste")
 
 #chargement de l'image nécéssaire
-photo = PhotoImage(file="Ne pas ouvrir (spoil)\Lac2.gif")
+photo = PhotoImage(file="img_lac_celeste\Lac2.gif")
     
 #création d'une zone graphique
 Largeur = 480
@@ -201,7 +201,7 @@ fond = Tk()
 fond.title("Lac Céleste")
 
 #chargement de l'image nécéssaire
-photo = PhotoImage(file="Ne pas ouvrir (spoil)\Lac3.gif")
+photo = PhotoImage(file="img_lac_celeste\Lac3.gif")
     
 #création d'une zone graphique
 Largeur = 480
@@ -224,7 +224,7 @@ fond = Tk()
 fond.title("Lac Céleste")
 
 #chargement de l'image nécéssaire
-photo = PhotoImage(file="Ne pas ouvrir (spoil)\Lac4.gif")
+photo = PhotoImage(file="img_lac_celeste\Lac4.gif")
     
 #création d'une zone graphique
 Largeur = 480
@@ -247,7 +247,7 @@ fond = Tk()
 fond.title("Lac Céleste")
 
 #chargement de l'image nécéssaire
-photo = PhotoImage(file="Ne pas ouvrir (spoil)\Lac5.gif")
+photo = PhotoImage(file="img_lac_celeste\Lac5.gif")
     
 #création d'une zone graphique
 Largeur = 480
@@ -403,7 +403,7 @@ DETECTION_CLIC_SUR_OBJET = False
 Mafenetre = Tk()
 Mafenetre.title("Temple")
 
-photo = PhotoImage(file="Ne pas ouvrir (spoil)\Temple.gif")
+photo = PhotoImage(file="img_lac_celeste\Temple.gif")
 
 # Création d'un widget Canvas
 Largeur = 480
@@ -474,7 +474,7 @@ DETECTION_CLIC_SUR_OBJET = False
 cristal = Tk()
 cristal.title("")
 
-photo = PhotoImage(file="Ne pas ouvrir (spoil)\Temple cristal.gif")
+photo = PhotoImage(file="img_lac_celeste\Temple cristal.gif")
 fond = Canvas(cristal, width=480, height=320, bg="white")
 fond.create_image(0, 0, anchor=NW, image = photo)
 
@@ -495,7 +495,7 @@ cristal.mainloop()
 cristal = Tk()
 cristal.title("")
 
-photo = PhotoImage(file ="Ne pas ouvrir (spoil)\Cristal.gif")
+photo = PhotoImage(file ="img_lac_celeste\Cristal.gif")
 obtenu = Canvas(cristal, width=288, height=339, bg = "white")
 obtenu.create_image(0, 0, anchor=NW, image = photo)
 obtenu.pack(padx=5, pady=5)
@@ -556,7 +556,7 @@ corruption = Tk()
 corruption.title('')
 
 #chargement de l'image nécéssaire
-photo = PhotoImage(file="Ne pas ouvrir (spoil)\Fond Lac corruption.gif")
+photo = PhotoImage(file="img_lac_celeste\Fond Lac corruption.gif")
     
 #création d'une zone graphique
 Largeur = 480
@@ -631,7 +631,7 @@ def Clavier(event):
 combat = Tk()
 combat.title("")
 
-photo = PhotoImage(file = "Ne pas ouvrir (spoil)\Combat.gif")
+photo = PhotoImage(file = "img_lac_celeste\Combat.gif")
 fond = Canvas(combat, width=647, height=367)
 fond.create_image(0, 0, anchor=NW, image=photo)
 fond.pack(padx=5, pady=5)
@@ -642,7 +642,7 @@ fond.create_rectangle(389, 335, vie_max_v, 339, fill="green")
 fond.create_rectangle(21, 61, vie_max_c, 65, fill="green")
 fond.create_rectangle(389, 335, vie_max_v, 339, fill="green")
 
-photo2 = PhotoImage(file = "Ne pas ouvrir (spoil)\Attaque Objet.gif")
+photo2 = PhotoImage(file = "img_lac_celeste\Attaque Objet.gif")
 second_ecran = Canvas(combat, width=651, height=112)
 second_ecran.create_image(0, 0, anchor=NW, image = photo2)
 second_ecran.pack(padx=5, pady=5)
