@@ -2,19 +2,20 @@
 #on importe les bibliothèques et modules dont nous allons avoir besoin
 from tkinter import *
 from tkinter.messagebox import *
-from random import *
+from random import choice
 from os import system
 from Ne_pas_ouvrir.utile import *
 from sys import exit
-
+from subprocess import call
 
 def Chapitre1(prenom):
     """
     Lance le chapitre 1 de l'histoire du jeu.
     """
     #On lance un monologue
+    print("Nous voici dans le Chapitre 1 ! TINTINTIN !\n")
     print("Quoi ?! Je fais des chapitres moi maintenant ??")
-    print("Enfin ! Là n'est pas la question ! Nous voici dans le Chapitre 1 ! TINTINTIN ! (D'accord j'arrête...)\n")
+    print("Enfin ! Là n'est pas la question !\n")
     print("Bienvenue dans mon univers, je suis John 2.0 !")
     print("Je ne suis, certes, qu'une machine, mais Lilian m'a quand même doté de sensibilité !")
     print("Disons donc que ce chapitre n'est qu'une présentation de mon monde !")
@@ -211,7 +212,7 @@ def Chapitre6():
     
     print("\nJelly : Mmh... Je ne me souviens plus du code pour entrer... ^^'")
     print("Je vais devoir vous soliciter, vous allez devoir traduire le message inscrit sur la porte...")
-    print("Pour vous aider il me semble qu'il y a un dossier ''module'', peut-être pourriez vous y faire un tour ?")
+    print("Pour vous aider il me semble qu'il y a un outil de décodage de la porte quelque part...")
     print("_______________________________________________________________________________")
     system("pause")
     
@@ -220,36 +221,11 @@ def Chapitre6():
     
     #on crée une variable qui permet de sortir de la boucle while
     sortir_boucle = 0
+    creation_Fichier_A_Decoder()
     
-    #tant que l'on entrera pas le bon mot de passe, la boucle tournera
-    while sortir_boucle != 1:
-        #on demande à l'utilisateur d'entrer le mot de passe de la traduction
-        trouve = input("(Entrez le mot de passe de la traduction ici) : ")
-    
-        if trouve == "antitempli" :
-            print("\n### Vous donnez le mot de passe à Jelly ###")
+    system("python Ne_pas_ouvrir\\Decodage.py")
+    #["C:/Python32/python.exe", "./Ne_pas_ouvrir/Decodage.py"]
         
-            print("\n\nAh oui c'est vrai ! Merci, maintenant on peut entrer !")
-            print("\n### Vous entrez dans le temple, l'intérieur est sombre, seul un piedestal est illuminé où flotte l'un des mots de passe dont vous avez besoin pour vaincre la corruption ###")
-            print("### Le mot ''antitempli'' vient à vous, vous le saisissez puis il disparaît ###")
-            print("\nJelly :\nNe vous inquiétez pas, ce code est lié à vous, vous pourrez l'invoquer en temps voulu.")
-            print("Bon, j'imagine que j'ai accompli ma mission, alors permettez moi de vous racompagner...")
-            print("\n### Jelly vous fait passer à trevers un portail qui vous ramène chez Lili ###")
-            print("_______________________________________________________________________________")
-            sortir_boucle = 1
-        
-        else :
-            print("\n\nJelly :\nIl ne me semble pas que ce soit cela...")
-    
-    system("pause")
-    print("\nLili :\nOh vous êtes revenu(e) ! J'imagine donc que vous avez réussi, parfait !")
-    print("Pendant votre absence je me suis renseignée quant aux autres codes contre la corruption.")
-    print("Le prochain se touve au lac céleste !")
-    system("pause")
-    print("Le mot de passe du chapitre 7 est donc : lac celeste")
-    print("_______________________________________________________________________________")
-
-    
 def Chapitre7(prenom):
     """
     lance le chapitre 7 de l'histoire

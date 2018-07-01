@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from tkinter import *
-from random import *
+from random import choice
 
 
 def verif_Nombre(nombre):
@@ -8,11 +8,12 @@ def verif_Nombre(nombre):
     
     while (not(ok)):
         try:
-            int(nombre)
-        except TypeError:
-            input("\nCe n'est pas un nombre, veuillez saisir à nouveau : ")
+            nombre = int(nombre)
+        except:
+            nombre = input("\nCe n'est pas un nombre, veuillez saisir à nouveau : ")
         
-        ok = True
+        else:
+            ok = True
         
     return nombre
 
@@ -46,8 +47,8 @@ def epreuve_Corruption():
         #on crée une boucle for, afin de déduire
         #le nombre d'essais restants
         for I in range(1, 8):
-
-            estimation = input("Quelle est votre estimation ? ")#on demande à l'utiliateur son estimation
+            #on demande à l'utiliateur son estimation
+            estimation = input("Quelle est votre estimation ? ")
             estimation = verif_Nombre(estimation)
             #puis on teste la valeur de l'estimation, afin de voir
             #si elle correspond au nombre à trouver
@@ -114,3 +115,15 @@ def creation_Fichiers_Chap5():
     
     #on ferme le fichier.
     zoom.close()
+
+
+
+def creation_Fichier_A_Decoder():
+    #on crée un fichier texte contenant la phrase à décoder.
+    fichier = open(".\module\Texte_a_decoder.txt", "w")
+    
+    #on écrit dans ce fichier.
+    fichier.write("t'swkqsxo aeo tovvi k oxmybo yelvso vo myno no vk zybdo wwr ? lyx, doxoj : kxdsdowzvs\n\n< 10 >")
+    
+    #puis on ferme le fichier
+    fichier.close()

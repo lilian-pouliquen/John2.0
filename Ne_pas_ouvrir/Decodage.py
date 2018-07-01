@@ -3,44 +3,6 @@ from tkinter import *
 from tkinter.messagebox import *
 from os import system
 
-def codage(texte_a_coder, code):
-    """
-    code le texte texte avec un codage
-    en +code
-    texte est une chaine de caractères
-    code est un entier.
-    """
-    
-    alphabet = "abcdefghijklmnopqrstuvwxyz"
-    texte_code = ""
-    
-    #on parcourt chaque caractère du texte, afin de le traduire.
-    for caractere in texte_a_coder:
-        if caractere not in alphabet :
-            
-            #si c'est une ponctuation, on ne le traduit pas.
-            texte_code += caractere
-        
-        #pour chaque lettre de l'alphabet, on cherche si le caractère y correspond.
-        for numero in range(0, len(alphabet)):
-            if alphabet[numero] == caractere:
-                
-                #si oui, alors on écrit le caractère traduit en code dans le texte codé.
-                texte_code += alphabet[(numero+code)%26]
-        
-    
-    #on ouvre le fichier dans lequel on va écrire le texte traduit.
-    nouveau_texte = open("Texte Codé.txt", "w")
-    
-    #on y écrit en quel code il a été traduit, puis on écrit le texte codé.
-    nouveau_texte.write("Codé en "+str(code)+"\n\n")
-    nouveau_texte.write(texte_code)
-
-
-
-
-
-
 def decodage(texte_a_decoder, code):
     """
     decode le texte texte avec le codage dans lequel
@@ -75,7 +37,7 @@ def verif():
     vérifie si le mot de passe entré dans la boîte de message est correct.
     """
     if Motdepasse.get() == "univers":
-        showinfo("", "Bien joué !\nVoici l'accès au décodage...")
+        showinfo("", "Bravo !\nVoici l'accès au décodage...")
         #on ferme la fenêtre  
         mdp.destroy()
     
@@ -90,13 +52,45 @@ def verif():
         print("Le fichier à été créé dans ''module''")
         system("pause")
         
+        print("### VOus appelez Jelly ###\n")
+        print("Jelly : Oh vous avez trouvé ? Quel est donc le mot de passe ?\n")
+        trouve = input()
+        
+        sortir_boucle = 0
+        
+        while sortir_boucle != 1:
+            if trouve == "antitempli" :
+                print("\n### Vous donnez le mot de passe à Jelly ###")
+                print("\n\nAh oui c'est vrai ! Merci, maintenant on peut entrer !")
+                print("\n### Vous entrez dans le temple, l'intérieur est sombre, seul un piedestal est illuminé où flotte l'un des mots de passe dont vous avez besoin pour vaincre la corruption ###")
+                print("### Le mot ''antitempli'' vient à vous, vous le saisissez puis il disparaît ###")
+                print("\nJelly :\nNe vous inquiétez pas, ce code est lié à vous, vous pourrez l'invoquer en temps voulu.")
+                print("Bon, j'imagine que j'ai accompli ma mission, alors permettez moi de vous racompagner...")
+                print("\n### Jelly vous fait passer à trevers un portail qui vous ramène chez Lili ###")
+                print("_______________________________________________________________________________")
+                sortir_boucle = 1
+            
+            else :
+                print("\n\nJelly :\nIl ne me semble pas que ce soit cela...")
+    
+    system("pause")
+    print("\nLili :\nOh vous êtes revenu(e) ! J'imagine donc que vous avez réussi, parfait !")
+    print("Pendant votre absence je me suis renseignée quant aux autres codes contre la corruption.")
+    print("Le prochain se touve au lac céleste !")
+    system("pause")
+    print("Le mot de passe du chapitre 7 est donc : lac celeste")
+    print("_______________________________________________________________________________")
+        
     else :
         Motdepasse.set("")
         showerror("","Dommage, ce n'est pas cela !")
         
 
-print("Mmh, je vois que vous avez trouvé le bon programme...")
-print("Seulement rien n'est trop simple, je vous laisse chercher le mot de passe\nnécéssaire afin d'utiliser le décodage...")
+print("### Vous fouillez un peu les parages et trouvez l'outil dont parlait Jelly ###")
+print("### Vous saisissez l'objet numerique et l'allumez")
+print("Objet : Bonjour, vous venez d'allumer l'outil de décodage de la porte du temple.")
+print("Le problème est que rien n'est trop simple :")
+print("Je vous laisse chercher le mot de passe nécéssaire afin d'utiliser le décodage.")
 print("Petit indice, il se trouve quelque part dans le dossier ''module'', après c'est à vous de trouver où.")
         
 
