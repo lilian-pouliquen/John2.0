@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 from tkinter import *
 from random import choice
 

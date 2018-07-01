@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 #on importe les bibliothèques et modules dont nous allons avoir besoin
 from tkinter import *
 from tkinter.messagebox import *
@@ -219,15 +220,15 @@ def Chapitre6():
     print("\n### Vous vous approchez de la porte et y lisez cette inscription : \n\nt'swkqsxo aeo tovvi k oxmybo yelvso vo myno no vk zybdo wwr ?\nlyx, doxoj :\nkxdsdowzvs\n\n< 10 >\n\n")
     print("\nJelly :\nPrévenez moi lorsque vous aurez trouvé...")
 
+    # Création d'un fichier avec le message afin que l'utilisateur puisse le copier
     creation_Fichier_A_Decoder()
-    
+    # Exécution du fichier Decodage.py
     system("python Ne_pas_ouvrir\\Decodage.py")
-    #["C:/Python32/python.exe", "./Ne_pas_ouvrir/Decodage.py"]
         
 def Chapitre7(prenom):
     """
     lance le chapitre 7 de l'histoire
-    """        
+    """
     print("### John 2.0 vous attendais au bord du lac ###\n")
     print("John 2.0 : Ah ! Vous voilà ! Lili m'a averti en ce qui concerne le second code...")
     print("Je ne sais absolument pas où il peut être... Il va falloir que vous cherchiez, je sens que la corruption n'est pas loin, Lili et moi ne pouvons donc pas vous aider "+ prenom + ".")

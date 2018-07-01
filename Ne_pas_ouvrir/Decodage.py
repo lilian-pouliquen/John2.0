@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 from tkinter import *
 from tkinter.messagebox import *
 from os import system
@@ -28,7 +29,7 @@ def decodage(texte_a_decoder, code):
                 texte_decode += alphabet[(numero-code)%26]
      
     #on ouvre le fichier dans lequel on va écrire le texte décodé.
-    nouveau_texte = open("Texte Décodé.txt", "w")
+    nouveau_texte = open("Ne_pas_ouvrir\\Texte_Decode.txt", "w")
     nouveau_texte.write(texte_decode)
 
    
