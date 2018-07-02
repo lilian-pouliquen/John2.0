@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 from tkinter import *
+from tkinter.messagebox import *
 from time import sleep
 from os import system
 from utile import *
 from sys import exit
-
+'''
 # position initiale du pion
 PosX = 430
 PosY = 50
@@ -453,6 +454,8 @@ if (Verif_Succes(1)):
 
 ###############################################################################
 
+Clear_Cache()
+
 message = Tk()
 message.title("")
 
@@ -467,7 +470,9 @@ message.mainloop()
 ###############################################################################
 
 def Clic(event):
-    """ Gestion de l'événement Clic gauche """
+    """
+    Gestion de l'événement Clic gauche 
+    """
     global DETECTION_CLIC_SUR_OBJET
 
     # position du pointeur de la souris
@@ -616,33 +621,134 @@ else :
     
 print("_______________________________________________________________________________")
 
+'''
 
+###############################################################################
+###############################################################################
+###############################################################################
 
-###############################################################################
-###############################################################################
-###############################################################################
 
 vie_max_c = 252
 vie_max_v = 620
+
+utilise_Mot = False
+utilise_Cristal = False
 
 PosX = 38
 PosY = 55
 
 def Clavier(event):
-    """ Gestion de l'événement Appui sur une touche du clavier """
-    global PosX,PosY
+    """ 
+    Gestion de l'événement Appui sur une touche du clavier
+    """
+    global PosX, PosY, vie_max_c, vie_max_v, utilise_Mot, utilise_Cristal
     touche = event.keysym
 
+    # déplacements verticaux selon la position du curseur
+    if (PosX) == (160) or (PosX) == (520):
+        if (PosX, PosY) == (160, 25):
+            if touche == "Down":
+                PosY += 60
+            if touche == "Left":
+                PosX = 38
+                PosY = 55
+            if touche == "Return":
+                if utilise_Mot:
+                    showinfo("", "Vous ne puvez plus utiliser cet objet")
+                else:
+                    vie_max_c -= 50
+                    vie_max_v -= Attaque_Corruption()
+                    
+                    Verifs_Fin_De_Tour(vie_max_c, vie_max_v, lbl_Vie_C, lbl_Vie_V)
+                    utilise_Mot = True
+        
+        elif (PosX, PosY) == (160, 85):
+            if touche == "Up":
+                PosY -= 60
+            if touche == "Left":
+                PosX = 38
+                PosY = 55
+            if touche == "Return":
+                if utilise_Cristal:
+                    showinfo("", "Vous ne puvez plus utiliser cet objet")
+                else:
+                    vie_max_v += 100
+                    vie_max_c -= 30
+                    vie_max_v -= Attaque_Corruption()
+                
+                    Verifs_Fin_De_Tour(vie_max_c, vie_max_v, lbl_Vie_C, lbl_Vie_V)
+                    utilise_Cristal = True
+                
+        elif (PosX, PosY) == (520, 20):
+            if touche == "Down":
+                PosY += 35
+            if touche == "Left":
+                PosX = 388
+                PosY = 55
+            if touche == "Return":
+                vie_max_c -= 30
+                vie_max_v -= Attaque_Corruption()
+                
+                Verifs_Fin_De_Tour(vie_max_c, vie_max_v, lbl_Vie_C, lbl_Vie_V)
+        
+        elif (PosX, PosY) == (520, 55):
+            if touche == "Down":
+                PosY += 35
+            if touche == "Up":
+                PosY -= 35
+            if touche == "Left":
+                PosX = 388
+                PosY = 55
+            if touche == "Return":
+                vie_max_c -= 15
+                vie_max_v -= Attaque_Corruption()
+                
+                Verifs_Fin_De_Tour(vie_max_c, vie_max_v, lbl_Vie_C, lbl_Vie_V)
+        
+        elif (PosX, PosY) == (520, 90):
+            if touche == "Up":
+                PosY -= 35
+            if touche == "Left":
+                PosX = 388
+                PosY = 55
+            if touche == "Return":
+                vie_max_c -= 5
+                vie_max_v -= Attaque_Corruption()
+                
+                Verifs_Fin_De_Tour(vie_max_c, vie_max_v, lbl_Vie_C, lbl_Vie_V)
+    
     # déplacement vers la droite
-    if (PosX, PosY) == (38, 55) :
+    elif (PosX, PosY) == (38, 55):
         if touche == 'Right':
-            PosX += 20
+            PosX += 350
+        if touche == "Return":
+            if utilise_Cristal and utilise_Mot:
+                showinfo("", "Vous ne puvez plus utiliser d'objets")
+            else:
+                PosX = 160
+                PosY = 25
+            
     # déplacement vers la gauche
     else:
         if touche == 'Left':
-            PosX -= 20
+            PosX -= 350
+        if touche == "Return":
+            PosX = 520
+            PosY = 20
     # on dessine le pion à sa nouvelle position
     second_ecran.coords(point1,PosX -6, PosY -6, PosX +6, PosY +6)
+    
+    if vie_max_c <= 0:
+        showinfo("", "Vous avez vaincu la Corruption !")
+        sleep(0.5)
+        combat.destroy()
+    
+    if vie_max_v <= 0:
+        showinfo("", "La Corruption vous a battu(e)...\n\Vous vous faites expulser du monde de John2.0 laissant la Corruption s'en emparer\n\n Fin de partie.")
+        sleep(0.5)
+        combat.destroy()
+        exit()
+        
 
 combat = Tk()
 combat.title("")
@@ -652,11 +758,14 @@ fond = Canvas(combat, width=647, height=367)
 fond.create_image(0, 0, anchor=NW, image=photo)
 fond.pack(padx=5, pady=5)
 
-fond.create_rectangle(21, 61, vie_max_c, 65, fill="green")
-fond.create_rectangle(389, 335, vie_max_v, 339, fill="green")
+lbl_Vie_C = Label(fond,text = vie_max_c, font=("Fixedsys", 25), bg="white")
+lbl_Vie_C.pack()
 
-fond.create_rectangle(21, 61, vie_max_c, 65, fill="green")
-fond.create_rectangle(389, 335, vie_max_v, 339, fill="green")
+lbl_Vie_V = Label(fond,text = vie_max_v, font=("Comic Sans MS", 24), bg="white")
+lbl_Vie_V.pack()
+
+fond.create_window(170, 60, window = lbl_Vie_C)
+fond.create_window(550, 333, window = lbl_Vie_V)
 
 photo2 = PhotoImage(file = "img_lac_celeste\Attaque Objet.gif")
 second_ecran = Canvas(combat, width=651, height=112)
@@ -669,5 +778,3 @@ second_ecran.bind('<Key>',Clavier)
 second_ecran.pack(padx=5, pady=5)
 
 combat.mainloop()
-
-Clear_Cache()

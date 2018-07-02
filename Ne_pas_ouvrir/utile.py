@@ -151,4 +151,36 @@ def Clear_Cache():
     cache = open("cache_deplacer.dat", "w")
     cache.write("")
     cache.close()
-        
+    
+def Attaque_Corruption():
+    """
+    Choix de l'attaque utilisée par la Corruption dans le combat du chapitre 7
+    """
+    choix = choice(range(1,5))
+    
+    if choix == 1:
+        return 100
+    elif choix == 2:
+        return 50
+    elif choix == 3:
+        return 30
+    else :
+        return 15
+    
+def Verif_Vie(vie):
+    """
+    Si la vie donnée en paramètre est négative, on la ramène à 0
+    """
+    if vie < 0:
+        vie = 0
+    
+    return vie
+
+def Verifs_Fin_De_Tour(vie1, vie2, label1, label2):
+    """
+    Effectue les vérifications de fin de tour du combat
+    """
+    vie1 = Verif_Vie(vie1)
+    vie2 = Verif_Vie(vie2)
+    label1.config(text=vie1)
+    label2.config(text=vie2)
