@@ -54,7 +54,7 @@ def verif():
     if Motdepasse.get() == "exit":
         showinfo("Au revoir !", "Vous reviendrez hein ?")        
         mdp.destroy()
-        exit(0)
+        exit()
     
     
     elif Motdepasse.get() == '789521':

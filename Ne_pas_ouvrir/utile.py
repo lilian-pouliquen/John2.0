@@ -3,7 +3,6 @@
 from tkinter import *
 from random import choice
 
-
 def verif_Nombre(nombre):
     ok = False
     
@@ -128,3 +127,28 @@ def creation_Fichier_A_Decoder():
     
     #puis on ferme le fichier
     fichier.close()
+    
+    
+def Verif_Succes(ligne):
+    """
+    Vérifie si un passage a été fait correctement dans deplacer.py
+    """
+    conditions = ["succes_Lac = True\n", "succes_Temple = True\n"]
+    cache = open("cache_deplacer.dat", "r")
+    clefs = cache.readlines()
+    cache.close()
+    
+    if ligne >= len(clefs):
+        print("\n\n### Vous avez quité le monde de John2.0 ###")
+        return True
+    elif clefs[ligne] != conditions[ligne]:
+        print("\n\n### Vous avez quité le monde de John2.0 ###")
+        return True
+    else:
+        return False
+
+def Clear_Cache():
+    cache = open("cache_deplacer.dat", "w")
+    cache.write("")
+    cache.close()
+        

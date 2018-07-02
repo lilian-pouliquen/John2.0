@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 from tkinter import *
-from time import *
+from time import sleep
 from os import system
+from utile import *
+from sys import exit
 
 # position initiale du pion
 PosX = 430
@@ -52,6 +54,9 @@ def Clavier(event):
         
         #on définit la zone d'effet de l'appui sur "e"      :
         if ((PosX,PosY) == (90,150) or (PosX,PosY) == (110,150) or (PosX,PosY) == (130,150)) :
+            cache = open("cache_deplacer.dat", "a")
+            cache.write("succes_Lac = True\n")
+            cache.close()
             fond.destroy()
         
         
@@ -106,10 +111,7 @@ def Clavier(event):
             gemme.pack()
             gemme.mainloop()
 
-         
-            
-            
-            
+
 # Création de la fenêtre principale
 fond = Tk()
 fond.title("Lac Céleste")
@@ -130,9 +132,13 @@ Lac.bind('<Key>',Clavier)
 Lac.pack(padx =5, pady =5)
  
 #création d'un bouton Quitter
-Button(fond, text ='Quitter', command = exit).pack(side=LEFT,padx=5,pady=5)
+Button(fond, text ='Quitter', command = fond.destroy).pack(side=LEFT,padx=5,pady=5)
 
 fond.mainloop()
+
+if (Verif_Succes(0)):
+    Clear_Cache()
+    exit()
 
 ######################################## Message ##############################
 message = Tk()
@@ -168,8 +174,6 @@ sleep(1)
 
 fond.destroy()
 fond.mainloop()
-
-
 
 ############################ Lac 2 ############################################
 
@@ -264,7 +268,6 @@ sleep(1)
 Button(fond, text ='Suite -->', command = fond.destroy).pack(side=RIGHT,padx=5,pady=5)
 fond.mainloop()
 
-
 ############################## Nouveaux messages ##############################
 message = Tk()
 message.title("")
@@ -315,6 +318,7 @@ bouton_suite = Button(message, text = "Suite -->", command = message.destroy)
 bouton_suite.pack(pady=5, side = BOTTOM)
 
 message.mainloop()
+
 ###############################################################################
 
 message = Tk()
@@ -346,6 +350,9 @@ def Clic(event):
     else: DETECTION_CLIC_SUR_OBJET = False
 
     if (((Canevas.coords(Gemme_b) == [385.0, 184.0, 405.0, 200.0]) or (Canevas.coords(Gemme_b) == [385.0, 183.0, 405.0, 199.0])) and ((Canevas.coords(Gemme_r) == [74.0, 184.0, 94.0, 200.0]) or (Canevas.coords(Gemme_r) == [74.0, 183.0, 94.0, 199.0]))) :
+        cache = open("cache_deplacer.dat", "a")
+        cache.write("succes_Temple = True\n")
+        cache.close()
         sleep(0.5)
         Mafenetre.destroy()
     
@@ -364,7 +371,10 @@ def Clic2(event):
     else: DETECTION_CLIC_SUR_OBJET = False
 
     if (((Canevas.coords(Gemme_b) == [385.0, 184.0, 405.0, 200.0]) or (Canevas.coords(Gemme_b) == [385.0, 183.0, 405.0, 199.0])) and ((Canevas.coords(Gemme_r) == [74.0, 184.0, 94.0, 200.0]) or (Canevas.coords(Gemme_r) == [74.0, 183.0, 94.0, 199.0]))) :
-        sleep(1)
+        cache = open("cache_deplacer.dat", "a")
+        cache.write("succes_Temple = True\n")
+        cache.close()
+        sleep(0.5)
         Mafenetre.destroy()
 
 def Drag(event):
@@ -436,6 +446,10 @@ Canevas.focus_set()
 Canevas.pack(padx=10,pady=10)
 
 Mafenetre.mainloop()
+
+if (Verif_Succes(1)):
+    Clear_Cache()
+    exit()
 
 ###############################################################################
 
@@ -604,13 +618,15 @@ print("_________________________________________________________________________
 
 
 
-
 ###############################################################################
 ###############################################################################
 ###############################################################################
 
 vie_max_c = 252
 vie_max_v = 620
+
+PosX = 38
+PosY = 55
 
 def Clavier(event):
     """ Gestion de l'événement Appui sur une touche du clavier """
@@ -626,7 +642,7 @@ def Clavier(event):
         if touche == 'Left':
             PosX -= 20
     # on dessine le pion à sa nouvelle position
-    second_ecran.coords(point1,PosX -5, PosY -5, PosX +5, PosY +5)
+    second_ecran.coords(point1,PosX -6, PosY -6, PosX +6, PosY +6)
 
 combat = Tk()
 combat.title("")
@@ -645,9 +661,13 @@ fond.create_rectangle(389, 335, vie_max_v, 339, fill="green")
 photo2 = PhotoImage(file = "img_lac_celeste\Attaque Objet.gif")
 second_ecran = Canvas(combat, width=651, height=112)
 second_ecran.create_image(0, 0, anchor=NW, image = photo2)
+second_ecran.pack()
+
+point1 = second_ecran.create_oval(PosX-6, PosY-6, PosX+6, PosY+6, fill="black")
+second_ecran.focus_set()
+second_ecran.bind('<Key>',Clavier)
 second_ecran.pack(padx=5, pady=5)
 
-r = 6
-point1 = second_ecran.create_oval(38-r, 55-r, 38+r, 55+r, fill="black")
-
 combat.mainloop()
+
+Clear_Cache()

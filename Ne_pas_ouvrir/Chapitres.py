@@ -128,7 +128,7 @@ def Chapitre4(prenom):
         
         #si l'utilisateur a échoué, la partie est terminée
         print("### La corruption vous a repoussé(e) et s'est étendue à tout l'univers de John 2.0... C'est la fin... ###")
-        exit(0)
+        exit()
     
     #sinon, l'histoire continue
     else:
