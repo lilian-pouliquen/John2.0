@@ -119,7 +119,7 @@ fond.title("Lac Céleste")
 
 #chargement de l'image nécéssaire
 photo = PhotoImage(file="img_lac_celeste\Fond Lac.gif")
-    
+
 #création d'une zone graphique
 Largeur = 480
 Hauteur = 320
