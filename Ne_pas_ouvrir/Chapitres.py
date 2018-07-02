@@ -5,7 +5,7 @@ from tkinter import *
 from tkinter.messagebox import *
 from random import choice
 from os import system
-from Ne_pas_ouvrir.utile import *
+from Ne_pas_ouvrir.Utile import *
 from sys import exit
 
 def Chapitre1(prenom):
@@ -236,4 +236,4 @@ def Chapitre7(prenom):
     
     system("pause")
     
-    system("python Ne_pas_ouvrir\\deplacer.py")
+    system("python Ne_pas_ouvrir\\Deplacer.py")

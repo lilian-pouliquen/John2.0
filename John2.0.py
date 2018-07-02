@@ -6,7 +6,7 @@ from tkinter.messagebox import *
 from random import *
 from os import system
 from Ne_pas_ouvrir.Chapitres import *
-from Ne_pas_ouvrir.utile import *
+from Ne_pas_ouvrir.Utile import *
 from sys import exit
 
 #on affiche un premier dialogue afin de demander le prénom de l'utilisateur

@@ -3,9 +3,9 @@ from tkinter import *
 from tkinter.messagebox import *
 from time import sleep
 from os import system
-from utile import *
+from Utile import *
 from sys import exit
-'''
+
 # position initiale du pion
 PosX = 430
 PosY = 50
@@ -20,7 +20,7 @@ bouton_ok = Button(info, text = "OK", command = info.destroy)
 bouton_ok.pack(pady=5, side = BOTTOM)
 
 info.mainloop()
-    
+
 def Clavier(event):
     """ Gestion de l'événement Appui sur une touche du clavier """
     global PosX,PosY
@@ -131,7 +131,7 @@ Pion = Lac.create_oval(PosX-5,PosY-5,PosX+5,PosY+5,width=2,outline='black',fill=
 Lac.focus_set()
 Lac.bind('<Key>',Clavier)
 Lac.pack(padx =5, pady =5)
- 
+
 #création d'un bouton Quitter
 Button(fond, text ='Quitter', command = fond.destroy).pack(side=LEFT,padx=5,pady=5)
 
@@ -620,8 +620,6 @@ else :
     print("Est-ce que je te donnais le choix ? Haha ! Non, pas du tout !!!\n")
     
 print("_______________________________________________________________________________")
-
-'''
 
 ###############################################################################
 ###############################################################################
