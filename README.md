@@ -16,7 +16,7 @@ Sorry, comments are in French too, I will translate it when I will have the time
 - Please if you want to help me, I am trying to make a "fight" (as in Pokemon games you know?), where the user can choose the actions, and fight the "Corruption".
 ==> file location : Ne_pas_ouvrir/deplacer.py
 
--- I am working on the cursor allowing to choose item or attack, then which action to do.
+- - I am working on the cursor allowing to choose item or attack, then which action to do.
 
 - There are "continue checks" to do on "Ne_pas_ouvrir/deplacer.py", because currently you only have to close the windows to continue through the chapter. It is kind of cheating so. 
 Made but could be improved : Now it is a cache system to create keys to check if the user did correctly what is ask to him/her.
