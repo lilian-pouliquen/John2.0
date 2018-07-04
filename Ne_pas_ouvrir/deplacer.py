@@ -646,7 +646,22 @@ print("_________________________________________________________________________
 ###############################################################################
 ###############################################################################
 
+info = Tk()
+info.title("Insructions")
 
+message = Label(info, text = "Déplacez le curseur avec les flèches du clavier.\n\
+Appuyez sur 'Entrer' pour sélectionner.\n\
+Chaque objet est à usage unique :\n\
+    - Antitempli inflige des dégats\n\
+    - Cristal brillant vous soigne et inflige des dégats", justify='left')
+message.pack(padx=10, pady=10)
+
+bouton_ok = Button(info, text = "OK", command = info.destroy)
+bouton_ok.pack(pady=5, side = BOTTOM)
+
+info.mainloop()
+
+###############################################################################
 vie_max_c = 300
 vie_max_v = 150
 
@@ -691,7 +706,7 @@ def Clavier(event):
                 if utilise_Cristal:
                     showinfo("", "Vous ne puvez plus utiliser cet objet")
                 else:
-                    vie_max_v += 150
+                    vie_max_v += 175
                     vie_max_c -= 30
                     vie_max_v -= Attaque_Corruption()
 
@@ -757,6 +772,7 @@ def Clavier(event):
     # on dessine le pion à sa nouvelle position
     second_ecran.coords(point1,PosX -6, PosY -6, PosX +6, PosY +6)
 
+    # Actions si la vie d'un d'es deux est à zéro
     if vie_max_c <= 0:
         showinfo("", "Vous avez vaincu la Corruption !")
         sleep(0.5)
@@ -766,11 +782,11 @@ def Clavier(event):
         cache.write("succes_Combat = True\n")
         cache.close()
 
-    if vie_max_v <= 0:
+    elif vie_max_v <= 0:
         showinfo("", "La Corruption vous a battu(e)...\n\Vous vous faites expulser du monde de John2.0 laissant la Corruption s'en emparer\n\n Fin de partie.")
         sleep(0.5)
         combat.destroy()
-        exit()
+        Clear_Cache()
 
 
 combat = Tk()
@@ -802,10 +818,12 @@ second_ecran.pack(padx=5, pady=5)
 
 combat.mainloop()
 
+# Actions suivant l'issue du combat
 if not(Verif_Succes("succes_Combat = True\n")):
     Clear_Cache()
     exit()
 else:
+    Clear_Cache()
     print("Corruption : Argh... Tu m'as eu... Très bien... Chose promise, chose due...")
     print("Le cristal que tu possède sert de clef pour trouver le deuxième code légendaire...")
     print("C'est tout ce que je peux te dire...\n")
@@ -819,7 +837,7 @@ else:
     system("pause")
 
     print("John2.0 : Mmh je vois. Il faut donc aller voir Lili, elle a peut-être quelques infos pour nous !\n")
-    print("Le prochain mot de passe est 'le crital', on se retrouve chez notre amie la licorne !\n")
+    print("Le prochain mot de passe est 'le cristal', on se retrouve chez notre amie la licorne !\n")
     print("_______________________________________________________________________________")
     system("pause")
     

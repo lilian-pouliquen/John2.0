@@ -3,6 +3,7 @@
 from tkinter import *
 from random import choice
 
+
 def verif_Nombre(nombre):
     ok = False
     
@@ -117,7 +118,6 @@ def creation_Fichiers_Chap5():
     zoom.close()
 
 
-
 def creation_Fichier_A_Decoder():
     #on crée un fichier texte contenant la phrase à décoder.
     fichier = open(".\module\Texte_a_decoder.txt", "w")
@@ -155,6 +155,7 @@ def Clear_Cache():
     cache.write("")
     cache.close()
     
+    
 def Attaque_Corruption():
     """
     Choix de l'attaque utilisée par la Corruption dans le combat du chapitre 7
@@ -169,6 +170,7 @@ def Attaque_Corruption():
         return 30
     else :
         return 15
+    
     
 def Verif_Vie(vie):
     """

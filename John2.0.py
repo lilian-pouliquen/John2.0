@@ -114,6 +114,13 @@ def verif():
         mdp.destroy()  
         
         Chapitre7(prenom)
+        
+    elif Motdepasse.get() == "le cristal" :
+        showinfo("", "### Direction chez Lili ! ###")
+        #on ferme la fenêtre  
+        mdp.destroy()  
+        
+        Chapitre8(prenom)
     
     #si le mot de passe entré n'a aucune correspondance,
     #un message d'erreur s'affiche, indiquant à l'utilisateur qu'il s'est trompé
@@ -149,4 +156,3 @@ while 1:
 
 
     mdp.mainloop()
-    
