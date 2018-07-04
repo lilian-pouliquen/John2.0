@@ -29,7 +29,7 @@ def decodage(texte_a_decoder, code):
                 texte_decode += alphabet[(numero-code)%26]
      
     #on ouvre le fichier dans lequel on va écrire le texte décodé.
-    nouveau_texte = open("Ne_pas_ouvrir\\Texte_Decode.txt", "w")
+    nouveau_texte = open("module\\Texte_Decode.txt", "w")
     nouveau_texte.write(texte_decode)
 
    
@@ -67,7 +67,7 @@ def verif():
                 print("### Le mot ''antitempli'' vient à vous, vous le saisissez puis il disparaît ###")
                 print("\nJelly :\nNe vous inquiétez pas, ce code est lié à vous, vous pourrez l'invoquer en temps voulu.")
                 print("Bon, j'imagine que j'ai accompli ma mission, alors permettez moi de vous racompagner...")
-                print("\n### Jelly vous fait passer à trevers un portail qui vous ramène chez Lili ###")
+                print("\n### Jelly vous fait passer à travers un portail qui vous ramène chez Lili ###")
                 print("_______________________________________________________________________________")
                 sortir_boucle = 1
             
@@ -79,6 +79,7 @@ def verif():
         print("Pendant votre absence je me suis renseignée quant aux autres codes contre la corruption.")
         print("Le prochain se touve au lac céleste !")
         system("pause")
+        
         print("Le mot de passe du chapitre 7 est donc : lac celeste")
         print("_______________________________________________________________________________")
         

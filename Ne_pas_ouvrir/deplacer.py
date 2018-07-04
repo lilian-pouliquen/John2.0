@@ -55,7 +55,7 @@ def Clavier(event):
         
         #on définit la zone d'effet de l'appui sur "e"      :
         if ((PosX,PosY) == (90,150) or (PosX,PosY) == (110,150) or (PosX,PosY) == (130,150)) :
-            cache = open("cache_deplacer.dat", "a")
+            cache = open("Ne_pas_ouvrir\cache_deplacer.dat", "a")
             cache.write("succes_Lac = True\n")
             cache.close()
             fond.destroy()
@@ -76,7 +76,7 @@ def Clavier(event):
             Label1.pack(side = BOTTOM)
             
             #chargement de l'image nécéssaire
-            photo = PhotoImage(file="img_lac_celeste\Gemme Rouge.gif")
+            photo = PhotoImage(file="Ne_pas_ouvrir\img_lac_celeste\Gemme Rouge.gif")
             #création d'une zone graphique
             Largeur = 125
             Hauteur = 178
@@ -100,7 +100,7 @@ def Clavier(event):
             # Positionnement du widget avec la méthode pack()
             label.pack(side = BOTTOM)
             #chargement de l'image nécéssaire
-            photo = PhotoImage(file="img_lac_celeste\Gemme Bleue.gif")
+            photo = PhotoImage(file="Ne_pas_ouvrir\img_lac_celeste\Gemme Bleue.gif")
                 
             #création d'une zone graphique
             Largeur = 125
@@ -118,7 +118,7 @@ fond = Tk()
 fond.title("Lac Céleste")
 
 #chargement de l'image nécéssaire
-photo = PhotoImage(file="img_lac_celeste\Fond Lac.gif")
+photo = PhotoImage(file="Ne_pas_ouvrir\img_lac_celeste\Fond Lac.gif")
 
 #création d'une zone graphique
 Largeur = 480
@@ -160,7 +160,7 @@ fond = Tk()
 fond.title("Lac Céleste")
 
 #chargement de l'image nécéssaire
-photo = PhotoImage(file="img_lac_celeste\Fond Lac.gif")
+photo = PhotoImage(file="Ne_pas_ouvrir\img_lac_celeste\Fond Lac.gif")
    
 #création d'une zone graphique
 Largeur = 480
@@ -183,7 +183,7 @@ fond = Tk()
 fond.title("Lac Céleste")
 
 #chargement de l'image nécéssaire
-photo = PhotoImage(file="img_lac_celeste\Lac2.gif")
+photo = PhotoImage(file="Ne_pas_ouvrir\img_lac_celeste\Lac2.gif")
     
 #création d'une zone graphique
 Largeur = 480
@@ -206,7 +206,7 @@ fond = Tk()
 fond.title("Lac Céleste")
 
 #chargement de l'image nécéssaire
-photo = PhotoImage(file="img_lac_celeste\Lac3.gif")
+photo = PhotoImage(file="Ne_pas_ouvrir\img_lac_celeste\Lac3.gif")
     
 #création d'une zone graphique
 Largeur = 480
@@ -229,7 +229,7 @@ fond = Tk()
 fond.title("Lac Céleste")
 
 #chargement de l'image nécéssaire
-photo = PhotoImage(file="img_lac_celeste\Lac4.gif")
+photo = PhotoImage(file="Ne_pas_ouvrir\img_lac_celeste\Lac4.gif")
     
 #création d'une zone graphique
 Largeur = 480
@@ -252,7 +252,7 @@ fond = Tk()
 fond.title("Lac Céleste")
 
 #chargement de l'image nécéssaire
-photo = PhotoImage(file="img_lac_celeste\Lac5.gif")
+photo = PhotoImage(file="Ne_pas_ouvrir\img_lac_celeste\Lac5.gif")
     
 #création d'une zone graphique
 Largeur = 480
@@ -351,7 +351,7 @@ def Clic(event):
     else: DETECTION_CLIC_SUR_OBJET = False
 
     if (((Canevas.coords(Gemme_b) == [385.0, 184.0, 405.0, 200.0]) or (Canevas.coords(Gemme_b) == [385.0, 183.0, 405.0, 199.0])) and ((Canevas.coords(Gemme_r) == [74.0, 184.0, 94.0, 200.0]) or (Canevas.coords(Gemme_r) == [74.0, 183.0, 94.0, 199.0]))) :
-        cache = open("cache_deplacer.dat", "a")
+        cache = open("Ne_pas_ouvrir\cache_deplacer.dat", "a")
         cache.write("succes_Temple = True\n")
         cache.close()
         sleep(0.5)
@@ -372,7 +372,7 @@ def Clic2(event):
     else: DETECTION_CLIC_SUR_OBJET = False
 
     if (((Canevas.coords(Gemme_b) == [385.0, 184.0, 405.0, 200.0]) or (Canevas.coords(Gemme_b) == [385.0, 183.0, 405.0, 199.0])) and ((Canevas.coords(Gemme_r) == [74.0, 184.0, 94.0, 200.0]) or (Canevas.coords(Gemme_r) == [74.0, 183.0, 94.0, 199.0]))) :
-        cache = open("cache_deplacer.dat", "a")
+        cache = open("Ne_pas_ouvrir\cache_deplacer.dat", "a")
         cache.write("succes_Temple = True\n")
         cache.close()
         sleep(0.5)
@@ -414,7 +414,7 @@ DETECTION_CLIC_SUR_OBJET = False
 Mafenetre = Tk()
 Mafenetre.title("Temple")
 
-photo = PhotoImage(file="img_lac_celeste\Temple.gif")
+photo = PhotoImage(file="Ne_pas_ouvrir\img_lac_celeste\Temple.gif")
 
 # Création d'un widget Canvas
 Largeur = 480
@@ -493,7 +493,7 @@ DETECTION_CLIC_SUR_OBJET = False
 cristal = Tk()
 cristal.title("")
 
-photo = PhotoImage(file="img_lac_celeste\Temple cristal.gif")
+photo = PhotoImage(file="Ne_pas_ouvrir\img_lac_celeste\Temple cristal.gif")
 fond = Canvas(cristal, width=480, height=320, bg="white")
 fond.create_image(0, 0, anchor=NW, image = photo)
 
@@ -514,7 +514,7 @@ cristal.mainloop()
 cristal = Tk()
 cristal.title("")
 
-photo = PhotoImage(file ="img_lac_celeste\Cristal.gif")
+photo = PhotoImage(file ="Ne_pas_ouvrir\img_lac_celeste\Cristal.gif")
 obtenu = Canvas(cristal, width=288, height=339, bg = "white")
 obtenu.create_image(0, 0, anchor=NW, image = photo)
 obtenu.pack(padx=5, pady=5)
@@ -575,7 +575,7 @@ corruption = Tk()
 corruption.title('')
 
 #chargement de l'image nécéssaire
-photo = PhotoImage(file="img_lac_celeste\Fond Lac corruption.gif")
+photo = PhotoImage(file="Ne_pas_ouvrir\img_lac_celeste\Fond Lac corruption.gif")
     
 #création d'une zone graphique
 Largeur = 480
@@ -751,7 +751,7 @@ def Clavier(event):
 combat = Tk()
 combat.title("")
 
-photo = PhotoImage(file = "img_lac_celeste\Combat.gif")
+photo = PhotoImage(file = "Ne_pas_ouvrir\img_lac_celeste\Combat.gif")
 fond = Canvas(combat, width=647, height=367)
 fond.create_image(0, 0, anchor=NW, image=photo)
 fond.pack(padx=5, pady=5)
@@ -765,7 +765,7 @@ lbl_Vie_V.pack()
 fond.create_window(170, 60, window = lbl_Vie_C)
 fond.create_window(550, 333, window = lbl_Vie_V)
 
-photo2 = PhotoImage(file = "img_lac_celeste\Attaque Objet.gif")
+photo2 = PhotoImage(file = "Ne_pas_ouvrir\img_lac_celeste\Attaque Objet.gif")
 second_ecran = Canvas(combat, width=651, height=112)
 second_ecran.create_image(0, 0, anchor=NW, image = photo2)
 second_ecran.pack()

@@ -14,7 +14,7 @@ Sorry, comments are in French too, I will translate it when I will have the time
 
 ### Wanna help me?
 Please if you wanna help me there is some points here I have to check:
-- **_I am trying to fix a bug: In chapter 7 the call to Deplacer.py generate an exception while executing Deplacer.py at line 121._**
+- **_I am trying to fix a bug: In chapter 7 the call to Deplacer.py generate an exception while executing Deplacer.py after line 453 (I have to find which one)._**
 
 - There are "continue checks" to do on "Ne_pas_ouvrir/deplacer.py", because currently you only have to close the windows to continue through the chapter. It is kind of cheating so. 
 	- ==> Made but could be improved : Now it is a cache system to create keys to check if the user did correctly what is ask to him/her.

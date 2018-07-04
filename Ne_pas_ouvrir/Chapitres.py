@@ -221,6 +221,7 @@ def Chapitre6():
 
     # Création d'un fichier avec le message afin que l'utilisateur puisse le copier
     creation_Fichier_A_Decoder()
+    
     # Exécution du fichier Decodage.py
     system("python Ne_pas_ouvrir\\Decodage.py")
         
