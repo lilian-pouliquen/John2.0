@@ -78,7 +78,22 @@ def epreuve_Corruption():
     
     return nb_cle
     
+def Lux():
+    nom = Toplevel()
+    nom.title("Lux")
+
+    #chargement de l'image nécéssaire
+    photo = PhotoImage(file="Ne_pas_ouvrir\\Lux5.gif")
+        
+    #création d'une zone graphique
     
+    Canevas = Canvas(nom, width = 890, height = 552)
+    Canevas.create_image(0,0,anchor=NW, image = photo)
+    Canevas.pack()
+        
+    nom.mainloop()
+
+
 def creation_Fichiers_Chap5():
     #on crée un fichier texte contenant le deuxième chiffre.
     chiffre_2 = open("La lumière de la pénombre.txt", "w")

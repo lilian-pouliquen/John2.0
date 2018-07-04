@@ -786,7 +786,6 @@ def Clavier(event):
         showinfo("", "La Corruption vous a battu(e)...\n\Vous vous faites expulser du monde de John2.0 laissant la Corruption s'en emparer\n\n Fin de partie.")
         sleep(0.5)
         combat.destroy()
-        Clear_Cache()
 
 
 combat = Tk()

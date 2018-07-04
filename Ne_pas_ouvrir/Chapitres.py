@@ -176,6 +176,18 @@ def Chapitre5():
     
     chiffres = ""
     
+    menu = Tk()
+    menu.title("Choix")
+    menu.geometry("200x75")
+    
+    revoir = Button(menu, text="Revoir Lux", command = Lux)
+    reponse = Button(menu, text="Donner les chiffres à Lux", command = menu.destroy)
+
+    revoir.pack(side = TOP, padx = 5, pady = 5)
+    reponse.pack(side = BOTTOM, padx = 5, pady = 5)
+    
+    menu.mainloop()
+    
     #on demande alors à l'utilisateur la bonne combinaison.
     chiffres = input("Dites-moi les trois chiffres dans l'ordre lorsque vous les aurez trouvés : ")
     
@@ -183,6 +195,7 @@ def Chapitre5():
     #il réessaie
     while chiffres != "583":
         print("N'essayez pas de m'arnaquer... Je sais que ce n'est pas les bons chiffres, ou le bon ordre.")
+        chiffres = input()
 
     print("Bravo, je vois que vous avez su trouver les chiffres !")
     print("Fort bien, je peux donc vous ouvrir le passage vers le code légendaire...")
