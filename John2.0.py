@@ -8,6 +8,7 @@ from os import system
 from Ne_pas_ouvrir.Chapitres import *
 from Ne_pas_ouvrir.Utile import *
 from sys import exit
+from time import *
 
 #on affiche un premier dialogue afin de demander le prénom de l'utilisateur
 #et de lui donner quelques conseils.

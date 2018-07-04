@@ -129,26 +129,29 @@ def creation_Fichier_A_Decoder():
     fichier.close()
     
     
-def Verif_Succes(ligne):
+def Verif_Succes(succes):
     """
     Vérifie si un passage a été fait correctement dans deplacer.py
+    Renvoie Vrai si le succes est présent dans le cache
     """
-    conditions = ["succes_Lac = True\n", "succes_Temple = True\n"]
-    cache = open("cache_deplacer.dat", "r")
+    cache = open("Ne_pas_ouvrir\cache_deplacer.dat", "r")
     clefs = cache.readlines()
     cache.close()
+    flag = False
+    i = 0
     
-    if ligne >= len(clefs):
-        print("\n\n### Vous avez quité le monde de John2.0 ###")
-        return True
-    elif clefs[ligne] != conditions[ligne]:
-        print("\n\n### Vous avez quité le monde de John2.0 ###")
-        return True
-    else:
-        return False
+    while not(flag) and i < len(clefs):
+        if clefs[i] == succes:
+            flag = True
+        else:
+            i += 1
+    
+    return flag
+    
+    
 
 def Clear_Cache():
-    cache = open("cache_deplacer.dat", "w")
+    cache = open("Ne_pas_ouvrir\cache_deplacer.dat", "w")
     cache.write("")
     cache.close()
     

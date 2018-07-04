@@ -25,7 +25,7 @@ def Clavier(event):
     """ Gestion de l'événement Appui sur une touche du clavier """
     global PosX,PosY
     touche = event.keysym
-    
+
     # déplacement vers le haut
     if touche == 'Up':
         PosY -= 20
@@ -42,75 +42,98 @@ def Clavier(event):
     Lac.coords(Pion,PosX -5, PosY -5, PosX +5, PosY +5)
 
     if touche == "e":
-        #on définit la zone d'effet de l'appui sur "e"
+        #on définit la zone d'effet de l'appui sur "e" pour le papier
         if ((PosX,PosY) == (350, 50)):
             espace = Label(fond)
             espace.pack()
-            
+
             bouton_ok = Button(espace, text = "OK", command = espace.destroy)
             bouton_ok.pack(padx=5, pady=5, side = RIGHT)
-            
+
             message = Label(espace, text= "''Trouvez les 2 gemmes magiques,\nmontez sur le ponton,\njetez les gemmes magiques au coeur du lac.''")
             message.pack(padx=10, pady=10)
-        
-        #on définit la zone d'effet de l'appui sur "e"      :
-        if ((PosX,PosY) == (90,150) or (PosX,PosY) == (110,150) or (PosX,PosY) == (130,150)) :
-            cache = open("Ne_pas_ouvrir\cache_deplacer.dat", "a")
-            cache.write("succes_Lac = True\n")
-            cache.close()
-            fond.destroy()
-        
-        
-        #on définit la zone d'effet de l'appui sur "e"  
-        if (((PosX,PosY) == (390,270)) or  ((PosX,PosY) == (410,270))) :
-            #puis on affiche ce que le joueur a obtenu
-            gemme = Frame(fond,borderwidth=2)
-            gemme.pack(padx=10,pady=10)
 
-            #création du bouton "OK"
-            bouton_ok = Button(gemme, text = "OK", command = gemme.destroy)
-            bouton_ok.pack(pady=5, side = RIGHT)
-            
-            # Création d'un message
-            Label1 = Label(gemme, text = 'Vous obtenez une étrange gemme', fg = 'red')
-            Label1.pack(side = BOTTOM)
-            
-            #chargement de l'image nécéssaire
-            photo = PhotoImage(file="Ne_pas_ouvrir\img_lac_celeste\Gemme Rouge.gif")
-            #création d'une zone graphique
-            Largeur = 125
-            Hauteur = 178
-            obtenu = Canvas(gemme, width = Largeur, height = Hauteur)
-            obtenu.create_image(0,0,anchor=NW, image = photo)
-            obtenu.pack()
-            
-            gemme.mainloop()
-            
-        #on définit la zone d'effet de l'appui sur "e"    
+
+
+        #on définit la zone d'effet de l'appui sur "e" pour le ponton
+        if ((PosX,PosY) == (90,150) or (PosX,PosY) == (110,150) or (PosX,PosY) == (130,150)) :
+            if Verif_Succes("gemme_Rouge = True\n") and Verif_Succes("gemme_Bleue = True\n"):
+                cache = open("Ne_pas_ouvrir\cache_deplacer.dat", "a")
+                cache.write("succes_Lac = True\n")
+                cache.close()
+                fond.destroy()
+            else:
+                showinfo("Info", "### Vous ne pouvez rien faire pour l'instant ###")
+
+
+        #on définit la zone d'effet de l'appui sur "e" pour le coffre
+
+        if (((PosX,PosY) == (390,270)) or  ((PosX,PosY) == (410,270))) :
+            if Verif_Succes("gemme_Rouge = True\n"):
+                showinfo("Info", "### Il n'y a plus rien ici ###")
+
+            else:
+                # Indication dans le cache que la gemme rouge a été trouvée
+                cache = open("Ne_pas_ouvrir\cache_deplacer.dat", "a")
+                cache.write("gemme_Rouge = True\n")
+                cache.close()
+
+                #puis on affiche ce que le joueur a obtenu
+                gemme = Frame(fond,borderwidth=2)
+                gemme.pack(padx=10,pady=10)
+
+                #création du bouton "OK"
+                bouton_ok = Button(gemme, text = "OK", command = gemme.destroy)
+                bouton_ok.pack(pady=5, side = RIGHT)
+
+                # Création d'un message
+                Label1 = Label(gemme, text = 'Vous obtenez une étrange gemme', fg = 'red')
+                Label1.pack(side = BOTTOM)
+
+                #chargement de l'image nécéssaire
+                photo = PhotoImage(file="Ne_pas_ouvrir\img_lac_celeste\Gemme Rouge.gif")
+                #création d'une zone graphique
+                Largeur = 125
+                Hauteur = 178
+                obtenu = Canvas(gemme, width = Largeur, height = Hauteur)
+                obtenu.create_image(0,0,anchor=NW, image = photo)
+                obtenu.pack()
+
+                gemme.mainloop()
+
+        #on définit la zone d'effet de l'appui sur "e" pour le trou
         if ((PosX,PosY) == (70,270)) :
-            #puis on affiche ce que le joueur a obtenu
-            gemme = Label(fond)
-            
-            #création du bouton "OK"
-            bouton_ok = Button(gemme, text = "OK", command = gemme.destroy)
-            bouton_ok.pack(pady=5, side = RIGHT)
-            
-            # Création d'un message
-            label = Label(gemme, text = 'Vous obtenez une étrange gemme', fg = 'blue')
-            # Positionnement du widget avec la méthode pack()
-            label.pack(side = BOTTOM)
-            #chargement de l'image nécéssaire
-            photo = PhotoImage(file="Ne_pas_ouvrir\img_lac_celeste\Gemme Bleue.gif")
-                
-            #création d'une zone graphique
-            Largeur = 125
-            Hauteur = 178
-            obtenu = Canvas(gemme, width = Largeur, height = Hauteur)
-            obtenu.create_image(0,0,anchor=NW, image = photo)
-            obtenu.pack()
-            
-            gemme.pack()
-            gemme.mainloop()
+            if Verif_Succes("gemme_Bleue = True\n"):
+                showinfo("Info", "### Il n'y a plus rien ici ###")
+            else:
+                # Indication dans le cache que la gemme rouge a été trouvée
+                cache = open("Ne_pas_ouvrir\cache_deplacer.dat", "a")
+                cache.write("gemme_Bleue = True\n")
+                cache.close()
+
+                #puis on affiche ce que le joueur a obtenu
+                gemme = Label(fond)
+
+                #création du bouton "OK"
+                bouton_ok = Button(gemme, text = "OK", command = gemme.destroy)
+                bouton_ok.pack(pady=5, side = RIGHT)
+
+                # Création d'un message
+                label = Label(gemme, text = 'Vous obtenez une étrange gemme', fg = 'blue')
+                # Positionnement du widget avec la méthode pack()
+                label.pack(side = BOTTOM)
+                #chargement de l'image nécéssaire
+                photo = PhotoImage(file="Ne_pas_ouvrir\img_lac_celeste\Gemme Bleue.gif")
+
+                #création d'une zone graphique
+                Largeur = 125
+                Hauteur = 178
+                obtenu = Canvas(gemme, width = Largeur, height = Hauteur)
+                obtenu.create_image(0,0,anchor=NW, image = photo)
+                obtenu.pack()
+
+                gemme.pack()
+                gemme.mainloop()
 
 
 # Création de la fenêtre principale
@@ -137,7 +160,7 @@ Button(fond, text ='Quitter', command = fond.destroy).pack(side=LEFT,padx=5,pady
 
 fond.mainloop()
 
-if (Verif_Succes(0)):
+if not(Verif_Succes("succes_Lac = True\n")):
     Clear_Cache()
     exit()
 
@@ -161,7 +184,7 @@ fond.title("Lac Céleste")
 
 #chargement de l'image nécéssaire
 photo = PhotoImage(file="Ne_pas_ouvrir\img_lac_celeste\Fond Lac.gif")
-   
+
 #création d'une zone graphique
 Largeur = 480
 Hauteur = 320
@@ -184,7 +207,7 @@ fond.title("Lac Céleste")
 
 #chargement de l'image nécéssaire
 photo = PhotoImage(file="Ne_pas_ouvrir\img_lac_celeste\Lac2.gif")
-    
+
 #création d'une zone graphique
 Largeur = 480
 Hauteur = 320
@@ -207,7 +230,7 @@ fond.title("Lac Céleste")
 
 #chargement de l'image nécéssaire
 photo = PhotoImage(file="Ne_pas_ouvrir\img_lac_celeste\Lac3.gif")
-    
+
 #création d'une zone graphique
 Largeur = 480
 Hauteur = 320
@@ -230,7 +253,7 @@ fond.title("Lac Céleste")
 
 #chargement de l'image nécéssaire
 photo = PhotoImage(file="Ne_pas_ouvrir\img_lac_celeste\Lac4.gif")
-    
+
 #création d'une zone graphique
 Largeur = 480
 Hauteur = 320
@@ -253,7 +276,7 @@ fond.title("Lac Céleste")
 
 #chargement de l'image nécéssaire
 photo = PhotoImage(file="Ne_pas_ouvrir\img_lac_celeste\Lac5.gif")
-    
+
 #création d'une zone graphique
 Largeur = 480
 Hauteur = 320
@@ -356,7 +379,7 @@ def Clic(event):
         cache.close()
         sleep(0.5)
         Mafenetre.destroy()
-    
+
 def Clic2(event):
     """ Gestion de l'événement Clic droit """
     global DETECTION_CLIC_SUR_OBJET
@@ -382,7 +405,7 @@ def Drag(event):
     """ Gestion de l'événement bouton gauche enfoncé """
     X = event.x
     Y = event.y
-    
+
     if DETECTION_CLIC_SUR_OBJET == True:
         # limite de l'objet dans la zone graphique
         if X<0: X=0
@@ -391,8 +414,8 @@ def Drag(event):
         if Y>Hauteur: Y=Hauteur
         # mise à jour de la position de l'objet (drag)
         Canevas.coords(Gemme_r,X-longueur_rect,Y-largeur_rect,X+longueur_rect,Y+largeur_rect)
-        
-        
+
+
 def Drag2(event):
     """ Gestion de l'événement bouton droit enfoncé """
     X = event.x
@@ -406,8 +429,8 @@ def Drag2(event):
         if Y>Hauteur: Y=Hauteur
         # mise à jour de la position de l'objet (drag)
         Canevas.coords(Gemme_b,X-longueur_rect,Y-largeur_rect,X+longueur_rect,Y+largeur_rect)
-        
-        
+
+
 DETECTION_CLIC_SUR_OBJET = False
 
 # Création de la fenêtre principale
@@ -448,13 +471,11 @@ Canevas.pack(padx=10,pady=10)
 
 Mafenetre.mainloop()
 
-if (Verif_Succes(1)):
+if not(Verif_Succes("succes_Temple = True\n")):
     Clear_Cache()
     exit()
 
 ###############################################################################
-
-Clear_Cache()
 
 message = Tk()
 message.title("")
@@ -471,14 +492,14 @@ message.mainloop()
 
 def Clic(event):
     """
-    Gestion de l'événement Clic gauche 
+    Gestion de l'événement Clic gauche
     """
     global DETECTION_CLIC_SUR_OBJET
 
     # position du pointeur de la souris
     X = event.x
     Y = event.y
-    
+
     # coordonnées de l'objet
     [xmin,ymin,xmax,ymax] = fond.coords(objet)
 
@@ -489,7 +510,7 @@ def Clic(event):
 
 
 DETECTION_CLIC_SUR_OBJET = False
-    
+
 cristal = Tk()
 cristal.title("")
 
@@ -576,7 +597,7 @@ corruption.title('')
 
 #chargement de l'image nécéssaire
 photo = PhotoImage(file="Ne_pas_ouvrir\img_lac_celeste\Fond Lac corruption.gif")
-    
+
 #création d'une zone graphique
 Largeur = 480
 Hauteur = 320
@@ -618,7 +639,7 @@ if choix.lower() == "oui" :
 
 else :
     print("Est-ce que je te donnais le choix ? Haha ! Non, pas du tout !!!\n")
-    
+
 print("_______________________________________________________________________________")
 
 ###############################################################################
@@ -626,8 +647,8 @@ print("_________________________________________________________________________
 ###############################################################################
 
 
-vie_max_c = 252
-vie_max_v = 620
+vie_max_c = 300
+vie_max_v = 150
 
 utilise_Mot = False
 utilise_Cristal = False
@@ -636,7 +657,7 @@ PosX = 38
 PosY = 55
 
 def Clavier(event):
-    """ 
+    """
     Gestion de l'événement Appui sur une touche du clavier
     """
     global PosX, PosY, vie_max_c, vie_max_v, utilise_Mot, utilise_Cristal
@@ -654,12 +675,12 @@ def Clavier(event):
                 if utilise_Mot:
                     showinfo("", "Vous ne puvez plus utiliser cet objet")
                 else:
-                    vie_max_c -= 50
+                    vie_max_c -= 75
                     vie_max_v -= Attaque_Corruption()
-                    
+
                     Verifs_Fin_De_Tour(vie_max_c, vie_max_v, lbl_Vie_C, lbl_Vie_V)
                     utilise_Mot = True
-        
+
         elif (PosX, PosY) == (160, 85):
             if touche == "Up":
                 PosY -= 60
@@ -670,13 +691,13 @@ def Clavier(event):
                 if utilise_Cristal:
                     showinfo("", "Vous ne puvez plus utiliser cet objet")
                 else:
-                    vie_max_v += 100
+                    vie_max_v += 150
                     vie_max_c -= 30
                     vie_max_v -= Attaque_Corruption()
-                
+
                     Verifs_Fin_De_Tour(vie_max_c, vie_max_v, lbl_Vie_C, lbl_Vie_V)
                     utilise_Cristal = True
-                
+
         elif (PosX, PosY) == (520, 20):
             if touche == "Down":
                 PosY += 35
@@ -684,11 +705,11 @@ def Clavier(event):
                 PosX = 388
                 PosY = 55
             if touche == "Return":
-                vie_max_c -= 30
+                vie_max_c -= 50
                 vie_max_v -= Attaque_Corruption()
-                
+
                 Verifs_Fin_De_Tour(vie_max_c, vie_max_v, lbl_Vie_C, lbl_Vie_V)
-        
+
         elif (PosX, PosY) == (520, 55):
             if touche == "Down":
                 PosY += 35
@@ -698,11 +719,11 @@ def Clavier(event):
                 PosX = 388
                 PosY = 55
             if touche == "Return":
-                vie_max_c -= 15
+                vie_max_c -= 25
                 vie_max_v -= Attaque_Corruption()
-                
+
                 Verifs_Fin_De_Tour(vie_max_c, vie_max_v, lbl_Vie_C, lbl_Vie_V)
-        
+
         elif (PosX, PosY) == (520, 90):
             if touche == "Up":
                 PosY -= 35
@@ -710,11 +731,11 @@ def Clavier(event):
                 PosX = 388
                 PosY = 55
             if touche == "Return":
-                vie_max_c -= 5
+                vie_max_c -= 10
                 vie_max_v -= Attaque_Corruption()
-                
+
                 Verifs_Fin_De_Tour(vie_max_c, vie_max_v, lbl_Vie_C, lbl_Vie_V)
-    
+
     # déplacement vers la droite
     elif (PosX, PosY) == (38, 55):
         if touche == 'Right':
@@ -725,7 +746,7 @@ def Clavier(event):
             else:
                 PosX = 160
                 PosY = 25
-            
+
     # déplacement vers la gauche
     else:
         if touche == 'Left':
@@ -735,18 +756,22 @@ def Clavier(event):
             PosY = 20
     # on dessine le pion à sa nouvelle position
     second_ecran.coords(point1,PosX -6, PosY -6, PosX +6, PosY +6)
-    
+
     if vie_max_c <= 0:
         showinfo("", "Vous avez vaincu la Corruption !")
         sleep(0.5)
         combat.destroy()
-    
+
+        cache = open("Ne_pas_ouvrir\cache_deplacer.dat", "a")
+        cache.write("succes_Combat = True\n")
+        cache.close()
+
     if vie_max_v <= 0:
         showinfo("", "La Corruption vous a battu(e)...\n\Vous vous faites expulser du monde de John2.0 laissant la Corruption s'en emparer\n\n Fin de partie.")
         sleep(0.5)
         combat.destroy()
         exit()
-        
+
 
 combat = Tk()
 combat.title("")
@@ -776,3 +801,25 @@ second_ecran.bind('<Key>',Clavier)
 second_ecran.pack(padx=5, pady=5)
 
 combat.mainloop()
+
+if not(Verif_Succes("succes_Combat = True\n")):
+    Clear_Cache()
+    exit()
+else:
+    print("Corruption : Argh... Tu m'as eu... Très bien... Chose promise, chose due...")
+    print("Le cristal que tu possède sert de clef pour trouver le deuxième code légendaire...")
+    print("C'est tout ce que je peux te dire...\n")
+    print("### Corruption disparaît ###\n")
+    system("pause")
+
+    print("### John2.0 apparaît un peu essoufflé ###\n")
+    print("John2.0 : Vous avez repoussé Corruption ? Parfait ! Nous allons pouvoir continuer !")
+    print("Qu'avez-vous donc trouvé ?\n")
+    print("### Vous expliquez à John2.0 ce que vous avez trouvé ###\n")
+    system("pause")
+
+    print("John2.0 : Mmh je vois. Il faut donc aller voir Lili, elle a peut-être quelques infos pour nous !\n")
+    print("Le prochain mot de passe est 'le crital', on se retrouve chez notre amie la licorne !\n")
+    print("_______________________________________________________________________________")
+    system("pause")
+    
