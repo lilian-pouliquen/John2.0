@@ -251,3 +251,30 @@ def Chapitre7(prenom):
     system("pause")
     
     system("python Ne_pas_ouvrir\\Deplacer.py")
+    
+def Chapitre8(prenom):
+    """
+    Lance le chapitre 8 de l'histoire
+    """
+    
+    print("### Vous retournez chez Lili ###")
+    print("Lili : Oh vous voilà, John 2.0 m'a avertie de votre venue. Qu'avez-vous trouvé ?")
+    print("### Vous lui montrer le cristal ###")
+    print()
+    print("Oh je vois c'est un cristal des ancêtres, je sais d'où il vient mais pas à quoi il sert.")
+    print("_______________________________________________________________________________")
+    print()
+    
+    system("pause")
+    
+    print("Oh c'est une clef me dites-vous ? Parfait ! Alors dans ce cas nous devons aller au temple aérien.")
+    print("Ce n'est pas trop loin d'ici, je vais vous y emmener. Il vou faudra être prudent, ce temple est très ancien,")
+    print("il commence à tomber en ruine, les sols ne sont plus aussi solide et vous risquez de passer au travers.")
+    print("Sachant que le temple est dans le ciel vous risquez de ne pas apprécier la chute.")
+    print()
+    print("### Lili vous emmene au temple aérien ###")
+    print("_______________________________________________________________________________")
+    
+    system("pause")
+    
+    system("python Ne_pas_ouvrir\\Temple_aerien.py")

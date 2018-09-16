@@ -12,6 +12,9 @@ There are plenty of dialogs in French (do not be afraid)
 
 Sorry, comments are in French too, I will translate it when I will have the time
 
+### Current task
+I am editing the 8th chapter with a new file : Ne_pas_ouvrir/Temple_aerien.py.
+
 ### Wanna help me?
 Please if you wanna help me there is some points here I have to check:
 
