@@ -25,7 +25,7 @@ def canvas(titre, fichier, largeur, hauteur):
     nom.title(titre)
 
     #chargement de l'image nécéssaire
-    photo = PhotoImage(file="Ne_pas_ouvrir\\"+fichier)
+    photo = PhotoImage(file="Ne_pas_ouvrir/"+fichier)
         
     #création d'une zone graphique
     
@@ -83,7 +83,7 @@ def Lux():
     nom.title("Lux")
 
     #chargement de l'image nécéssaire
-    photo = PhotoImage(file="Ne_pas_ouvrir\\Lux5.gif")
+    photo = PhotoImage(file="Ne_pas_ouvrir/Lux5.gif")
         
     #création d'une zone graphique
     
@@ -135,7 +135,7 @@ def creation_Fichiers_Chap5():
 
 def creation_Fichier_A_Decoder():
     #on crée un fichier texte contenant la phrase à décoder.
-    fichier = open(".\module\Texte_a_decoder.txt", "w")
+    fichier = open("./module/Texte_a_decoder.txt", "w")
     
     #on écrit dans ce fichier.
     fichier.write("t'swkqsxo aeo tovvi k oxmybo yelvso vo myno no vk zybdo wwr ? lyx, doxoj : kxdsdowzvs\n\n< 10 >")
@@ -149,7 +149,7 @@ def Verif_Succes(succes):
     Vérifie si un passage a été fait correctement dans deplacer.py
     Renvoie Vrai si le succes est présent dans le cache
     """
-    cache = open("Ne_pas_ouvrir\cache_deplacer.dat", "r")
+    cache = open("Ne_pas_ouvrir/cache_deplacer.dat", "r")
     clefs = cache.readlines()
     cache.close()
     flag = False
@@ -166,7 +166,7 @@ def Verif_Succes(succes):
     
 
 def Clear_Cache():
-    cache = open("Ne_pas_ouvrir\cache_deplacer.dat", "w")
+    cache = open("Ne_pas_ouvrir/cache_deplacer.dat", "w")
     cache.write("")
     cache.close()
     

@@ -29,7 +29,7 @@ def decodage(texte_a_decoder, code):
                 texte_decode += alphabet[(numero-code)%26]
      
     #on ouvre le fichier dans lequel on va écrire le texte décodé.
-    nouveau_texte = open("module\\Texte_Decode.txt", "w")
+    nouveau_texte = open("module/Texte_Decode.txt", "w")
     nouveau_texte.write(texte_decode)
 
    
@@ -73,6 +73,7 @@ def verif():
             
             else :
                 print("\n\nJelly :\nIl ne me semble pas que ce soit cela...")
+                trouve = input()
     
         system("pause")
         print("\nLili :\nOh vous êtes revenu(e) ! J'imagine donc que vous avez réussi, parfait !")

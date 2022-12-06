@@ -236,7 +236,7 @@ def Chapitre6():
     creation_Fichier_A_Decoder()
     
     # Exécution du fichier Decodage.py
-    system("python Ne_pas_ouvrir\\Decodage.py")
+    system("python Ne_pas_ouvrir/Decodage.py")
         
 def Chapitre7(prenom):
     """
@@ -250,7 +250,7 @@ def Chapitre7(prenom):
     
     system("pause")
     
-    system("python Ne_pas_ouvrir\\Deplacer.py")
+    system("python Ne_pas_ouvrir/Deplacer.py")
     
 def Chapitre8(prenom):
     """
@@ -277,4 +277,4 @@ def Chapitre8(prenom):
     
     system("pause")
     
-    system("python Ne_pas_ouvrir\\Temple_aerien.py")
+    system("python Ne_pas_ouvrir/Temple_aerien.py")
